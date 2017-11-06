@@ -53,7 +53,9 @@ class FormViewModel {
             .signal
             .debounce(0.1, on: QueueScheduler.main)
             .map({ (email, confirmation) -> String in
-                return [email, confirmation].flatMap{ $0.error?.reason }.joined(separator: "\n")
+                let string = [email, confirmation].flatMap{ $0.error?.reason }.joined(separator: "\n")
+                print("string:\(string), email: \(email.error?.reason ?? " "), confirmation: \(confirmation)")
+                return string
             })
     }
 }

@@ -50,6 +50,7 @@ class FormViewController: UIViewController {
         formView.reasonLabel.reactive.text <~ viewModel.reasons
         
         //Setup the Action bind with the submit button
+        //Trigger `submit` whenever the button is pressed
         formView.submitButton.reactive.pressed = CocoaAction(viewModel.submit)
     }
 }
